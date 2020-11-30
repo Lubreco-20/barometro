@@ -36,6 +36,7 @@ public class VistaBarometro {
         opts.addOption("pe", true, "Añade una nueva presión (también hay que añadir una fecha)");
         opts.addOption("fh", true, "Añade una nueva fecha y una hora (también hay que añadir una presión)");
         opts.addOption("al", true, "Cambia la altitud");
+        opts.addOption("G", true, "Poner la interfaz gráfica");
 
         CommandLineParser parser = new DefaultParser();
         
