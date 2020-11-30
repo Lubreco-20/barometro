@@ -3,7 +3,7 @@ package com.mycompany.barometro;
 import java.time.LocalDateTime;
 
 /**
- *
+ * @version 1
  * @author Grupo 4
  */
 public class ControladorBarometro {
