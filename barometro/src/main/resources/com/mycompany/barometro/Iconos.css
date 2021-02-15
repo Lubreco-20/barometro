@@ -1,0 +1,19 @@
+#icono {
+    -fx-background-size: 50px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;   
+}
+    
+.sol {
+    -fx-background-image: url('sol.png');
+}
+
+.lluvia {
+    -fx-background-image: url('lluvia.png');
+}
+.nubes {
+    -fx-background-image: url('nubes.png');
+}
+.viento {
+    -fx-background-image: url('viento.png');
+}

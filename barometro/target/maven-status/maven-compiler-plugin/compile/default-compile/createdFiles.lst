@@ -1,4 +1,15 @@
+com\mycompany\barometro\FrameBarometro.class
+com\mycompany\barometro\FrameBarometro$5.class
+com\mycompany\barometro\FrameBarometro$3.class
 com\mycompany\barometro\ModeloBarometro.class
 com\mycompany\barometro\ModeloBarometro$valores.class
-com\mycompany\barometro\VistaBarometro.class
+module-info.class
+com\mycompany\barometro\VistaBarometro$1.class
 com\mycompany\barometro\ControladorBarometro.class
+com\mycompany\barometro\MainFX.class
+com\mycompany\barometro\FrameBarometro$4.class
+com\mycompany\barometro\ControladorJavaFX.class
+com\mycompany\barometro\VistaBarometro.class
+com\mycompany\barometro\FrameBarometro$6.class
+com\mycompany\barometro\FrameBarometro$2.class
+com\mycompany\barometro\FrameBarometro$1.class

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.barometro.ControladorJavaFX">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="623.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
+         <children>
+            <Pane layoutX="13.0" layoutY="27.0" prefHeight="102.0" prefWidth="614.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Label id="lblIconos" fx:id="lblIconos" layoutX="14.0" layoutY="14.0" prefHeight="71.0" prefWidth="71.0" style="-fx-background-color: lightgray;" />
+                  <Button fx:id="btnPredecir" layoutX="91.0" layoutY="25.0" mnemonicParsing="false" onAction="#clickPrediccion" style="-fx-background-color: lightgray;" text="%Prediccion" />
+                  <Label fx:id="lblTexto" layoutX="91.0" layoutY="63.0" text="label" />
+               </children>
+            </Pane>
+            <Pane layoutX="14.0" layoutY="132.0" prefHeight="119.0" prefWidth="360.0" AnchorPane.leftAnchor="0.0">
+               <children>
+                  <Button fx:id="btnPresion" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#clickPresion" style="-fx-background-color: #00A0E1; -fx-text-fill: white;" text="%presion" />
+                  <TextField fx:id="txfPresion" layoutX="170.0" layoutY="13.0" prefHeight="25.0" prefWidth="174.0" style="-fx-border-color: #00A0E1;" />
+                  <DatePicker fx:id="dpFecha" layoutX="170.0" layoutY="46.0" style="-fx-border-color: lightgray;" />
+                  <TextField fx:id="txfAltitud" layoutX="170.0" layoutY="79.0" prefHeight="25.0" prefWidth="174.0" style="-fx-border-color: #00A0E1;" />
+                  <Button fx:id="btnAltitud" layoutX="14.0" layoutY="80.0" mnemonicParsing="false" onAction="#clickCambio" style="-fx-background-color: #00A0E1; -fx-text-fill: white;" text="%altitud" />
+                  <Button fx:id="btnFecha" layoutX="14.0" layoutY="47.0" mnemonicParsing="false" onAction="#clickFecha" style="-fx-background-color: #00A0E1; -fx-text-fill: white;" text="%fecha" />
+               </children>
+            </Pane>
+            <Pane layoutX="346.0" layoutY="191.0" prefHeight="195.0" prefWidth="280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Button fx:id="btnHistorico" layoutX="108.0" layoutY="14.0" mnemonicParsing="false" onAction="#clcikHistorico" style="-fx-background-color: lightgray;" text="%historico" />
+                  <ListView fx:id="list" layoutX="11.0" layoutY="56.0" prefHeight="125.0" prefWidth="258.0" style="-fx-border-color: lightgray;" />
+               </children>
+            </Pane>
+            <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+              <menus>
+                  <Menu mnemonicParsing="false" text="Idioma">
+                    <items>
+                      <MenuItem fx:id="Idmes" mnemonicParsing="false" onAction="#changeToEs" text="Español" />
+                        <MenuItem fx:id="Idmen" mnemonicParsing="false" onAction="#changeToEn" text="English" />
+                        <MenuItem fx:id="Idmfr" mnemonicParsing="false" onAction="#changeToFr" text="Français" />
+                    </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

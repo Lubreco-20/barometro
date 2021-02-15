@@ -1,11 +1,6 @@
 package com.mycompany.barometro;
 
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.HelpFormatter;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.ParseException;
+import org.apache.commons.cli.*;
 import java.time.LocalDateTime;
 
 /**
@@ -36,7 +31,8 @@ public class VistaBarometro {
         opts.addOption("pe", true, "Añade una nueva presión (también hay que añadir una fecha)");
         opts.addOption("fh", true, "Añade una nueva fecha y una hora (también hay que añadir una presión)");
         opts.addOption("al", true, "Cambia la altitud");
-        opts.addOption("G", true, "Poner la interfaz gráfica");
+        opts.addOption("G", "Poner la interfaz gráfica");
+        opts.addOption("X", "Poner la interfaz gráfica con XML");
 
         CommandLineParser parser = new DefaultParser();
         
@@ -74,6 +70,16 @@ public class VistaBarometro {
             }
             if(cmd.hasOption("al")){
                 control.setAltitud(Double.parseDouble(cmd.getOptionValue("al")));
+            }
+            if(cmd.hasOption("G")){
+                java.awt.EventQueue.invokeLater(new Runnable(){
+                    public void run(){
+                        new FrameBarometro().setVisible(true);
+                    }
+                });
+            }
+            if(cmd.hasOption("X")){
+                MainFX.launch(MainFX.class);
             }
            
         } catch (ParseException ex) {

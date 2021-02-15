@@ -21,6 +21,11 @@ public class ModeloBarometro {
             this.presion = presion;
             this.fecha = fecha;
         }
+
+        @Override
+        public String toString() {
+            return "valores{" + "presion=" + presion + ", fecha=" + fecha + '}';
+        }
         
         public Double getPresion(){
             return presion;
