@@ -1,6 +1,5 @@
 package com.mycompany.barometro;
 
-import java.net.URL;
 import javafx.event.ActionEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -8,18 +7,18 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.ResourceBundle;
 import java.util.prefs.Preferences;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.*;
+import javafx.stage.Stage;
 import javax.swing.DefaultListModel;
-import org.controlsfx.validation.ValidationSupport;
-import org.controlsfx.validation.Validator;
+import org.controlsfx.validation.*;
 
 public class ControladorJavaFX {
 
@@ -31,11 +30,9 @@ public class ControladorJavaFX {
     private int predecir;
     private double presion, altitud;
     private LocalDateTime fecha;
-    private boolean fechaHoraCogida = false;
     
     public ControladorJavaFX(){
         this.modelo = new ModeloBarometro();
-        //fechaSistema();
     }
     
     public double validaDouble(String number){
@@ -49,10 +46,6 @@ public class ControladorJavaFX {
             //*No es numerico!
         }
         return result;
-    }
-    
-    public void fechaSistema(){
-        /*dpFecha.setCalendar(fechaActual);*/
     }
 
     public int getprediccion(){
@@ -95,12 +88,20 @@ public class ControladorJavaFX {
     @FXML
     void clickCambio(ActionEvent event) {
         altitud = validaDouble(txfAltitud.getText());
-        setAltitud(altitud);
+        if(!txfAltitud.getText().equals("")){
+            setAltitud(altitud);
+        }
     }
 
     @FXML
     void clickFecha(ActionEvent event) {
         try{
+            Calendar calendario = new GregorianCalendar();
+            int hora =calendario.get(Calendar.HOUR_OF_DAY);
+            int minutos = calendario.get(Calendar.MINUTE);
+            int segundos = calendario.get(Calendar.SECOND);
+            String Horas = String.valueOf(hora) + ":" + String.valueOf(minutos) + ":" + String.valueOf(segundos);
+            
             cogerFecha = df.format(dpFecha);
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             fecha = LocalDateTime.parse(cogerFecha, formatter);
@@ -115,7 +116,19 @@ public class ControladorJavaFX {
     void clickPrediccion(ActionEvent event) {
         ObservableList<String> clases = lblIconos.getStyleClass();
         clases.removeAll(CLASES);
-        //clases.add(CLASES[0]);
+        ProgressBar progress = new ProgressBar();
+        progress.setProgress(0.2);
+        ProgressIndicator indicator = new ProgressIndicator(0.6);
+        progress.setPrefSize(300, 30);
+        HBox hbox = new HBox(20);
+        hbox.setSpacing(5);
+        hbox.setPadding(new Insets(75,150,50,60));
+        hbox.getChildren().addAll(progress, indicator);
+        Group root = new Group(hbox);
+        Scene scene = new Scene(root, 595, 200, Color.BEIGE);
+        Stage stage = null;
+        stage.setScene(scene);
+        stage.show();
         predecir = getprediccion();
         switch(predecir){
             case 1:
